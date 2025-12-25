@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://ceh0por8dc3wo"]
+
+[ext_resource type="Script" path="res://scripts/telas/pause_menu.gd" id="1_caprw"]
+[ext_resource type="PackedScene" uid="uid://b04338bibrmnl" path="res://scenes/interfaes/alert.tscn" id="2_38aom"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="3_k3ycd"]
+[ext_resource type="Texture2D" uid="uid://ca1x2yjpwxla4" path="res://assets/sprites/buttons/controls/butao1.png" id="6_bracf"]
+[ext_resource type="Texture2D" uid="uid://cypj84nlspbm8" path="res://assets/sprites/buttons/controls/butao2.png" id="7_q5bcl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a0h8w"]
+font = ExtResource("3_k3ycd")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iq60h"]
+size = Vector2(98, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3u6w"]
+font = ExtResource("3_k3ycd")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tode"]
+size = Vector2(92.23, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qt58b"]
+font = ExtResource("3_k3ycd")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rltn"]
+size = Vector2(37.66, 20)
+
+[node name="pause_menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_caprw")
+
+[node name="Alert" parent="." instance=ExtResource("2_38aom")]
+text = "Jogo Pausado"
+
+[node name="vAlign_pause_menu" type="VBoxContainer" parent="Alert"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -30.0
+offset_right = 51.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lbl_resume" type="Label" parent="Alert/vAlign_pause_menu"]
+layout_mode = 2
+text = "Continuar"
+label_settings = SubResource("LabelSettings_a0h8w")
+horizontal_alignment = 1
+
+[node name="btn_resume" type="TouchScreenButton" parent="Alert/vAlign_pause_menu/lbl_resume"]
+position = Vector2(49, 9)
+shape = SubResource("RectangleShape2D_iq60h")
+
+[node name="lbl_Reiniciar" type="Label" parent="Alert/vAlign_pause_menu"]
+layout_mode = 2
+text = "Reiniciar"
+label_settings = SubResource("LabelSettings_s3u6w")
+horizontal_alignment = 1
+
+[node name="btn_restart" type="TouchScreenButton" parent="Alert/vAlign_pause_menu/lbl_Reiniciar"]
+position = Vector2(50, 9.5)
+shape = SubResource("RectangleShape2D_5tode")
+
+[node name="lbl_sair" type="Label" parent="Alert/vAlign_pause_menu"]
+layout_mode = 2
+text = "Sair"
+label_settings = SubResource("LabelSettings_qt58b")
+horizontal_alignment = 1
+
+[node name="btn_quit" type="TouchScreenButton" parent="Alert/vAlign_pause_menu/lbl_sair"]
+position = Vector2(48, 8.5)
+shape = SubResource("RectangleShape2D_3rltn")
+
+[node name="btn_pause" type="CanvasLayer" parent="."]
+
+[node name="pause" type="TouchScreenButton" parent="btn_pause"]
+position = Vector2(20, 23)
+texture_normal = ExtResource("6_bracf")
+texture_pressed = ExtResource("7_q5bcl")
+
+[connection signal="pressed" from="Alert/vAlign_pause_menu/lbl_resume/btn_resume" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Alert/vAlign_pause_menu/lbl_Reiniciar/btn_restart" to="." method="_on_touch_screen_button_3_pressed"]
+[connection signal="released" from="Alert/vAlign_pause_menu/lbl_sair/btn_quit" to="." method="_on_touch_screen_button_2_released"]
+[connection signal="pressed" from="btn_pause/pause" to="." method="_on_pause_pressed"]

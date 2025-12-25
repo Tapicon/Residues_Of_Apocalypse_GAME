@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwuhhhpefnamq"
+path="res://.godot/imported/HYBS - TIPTOE (INSTRUMENTAL).mp3-a23e01e33756532074d82d0e1ec23a86.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/songs/bg_souds/HYBS - TIPTOE (INSTRUMENTAL).mp3"
+dest_files=["res://.godot/imported/HYBS - TIPTOE (INSTRUMENTAL).mp3-a23e01e33756532074d82d0e1ec23a86.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

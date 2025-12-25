@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b3lfylwsv7cy2"]
+
+[ext_resource type="Script" uid="uid://d16lymp7jwm7" path="res://scripts/hud/boss-life/texture_progress_bar.gd" id="1_iqpsq"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="2_eu0hg"]
+[ext_resource type="Texture2D" uid="uid://doq0sr4hhc7ra" path="res://assets/sprites/layouts/icons/icon_lobo01.png" id="3_4b1kn"]
+
+[sub_resource type="Gradient" id="Gradient_xfr71"]
+offsets = PackedFloat32Array(0.00704225, 0.507042, 0.985915)
+colors = PackedColorArray(0.208, 0.26, 0.222733, 0.384314, 0.0785916, 0.0408676, 0.0408676, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iqpsq"]
+gradient = SubResource("Gradient_xfr71")
+width = 544
+height = 20
+fill_to = Vector2(0, 0)
+
+[sub_resource type="Gradient" id="Gradient_g6edu"]
+offsets = PackedFloat32Array(0, 0.274648)
+colors = PackedColorArray(0.31, 0.1271, 0.139293, 1, 0.590975, 0.214171, 0.184599, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xfr71"]
+gradient = SubResource("Gradient_g6edu")
+width = 544
+height = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4kfou"]
+font = ExtResource("2_eu0hg")
+font_color = Color(1, 1, 0.780392, 1)
+outline_size = 6
+outline_color = Color(0.22704, 0.24, 0.1104, 1)
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -237.0
+offset_top = 59.0
+offset_right = 307.0
+offset_bottom = 79.0
+grow_horizontal = 2
+texture_under = SubResource("GradientTexture2D_iqpsq")
+texture_progress = SubResource("GradientTexture2D_xfr71")
+script = ExtResource("1_iqpsq")
+
+[node name="name_boss" type="Label" parent="."]
+layout_mode = 0
+offset_left = 294.0
+offset_top = -20.0
+offset_right = 505.0
+offset_bottom = -2.0
+text = "Lovisomempidao "
+label_settings = SubResource("LabelSettings_4kfou")
+horizontal_alignment = 2
+
+[node name="icon" type="Sprite2D" parent="."]
+position = Vector2(524, -20)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("3_4b1kn")

@@ -1,0 +1,408 @@
+[gd_scene load_steps=42 format=3 uid="uid://oj0cwxdiokmg"]
+
+[ext_resource type="Texture2D" uid="uid://ce0sx86w1c6k7" path="res://assets/boss/tatu/animations/idle/tatu_respirando_o1.png" id="1_knexa"]
+[ext_resource type="Script" path="res://scripts/tatu.gd" id="1_qpt7j"]
+[ext_resource type="Texture2D" uid="uid://5sh7mx5rpdr8" path="res://assets/boss/tatu/animations/idle/tatu_respirando_o5.png" id="2_quem6"]
+[ext_resource type="Texture2D" uid="uid://b7mmhs46qvft" path="res://assets/boss/tatu/animations/idle/tatu_respirando_o3.png" id="3_j3ya4"]
+[ext_resource type="Texture2D" uid="uid://dmkwpmmd3vevm" path="res://assets/boss/tatu/animations/spikes/espinhos1.png" id="5_naht1"]
+[ext_resource type="Texture2D" uid="uid://b85a5gu2y0aui" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu1.png" id="5_uesca"]
+[ext_resource type="Texture2D" uid="uid://s8ub2dmhxrxi" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu2.png" id="6_l8jpx"]
+[ext_resource type="Texture2D" uid="uid://cfvqb75amrpu2" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu3.png" id="7_5swpb"]
+[ext_resource type="Texture2D" uid="uid://b85wfd5fxf5q0" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu4.png" id="8_fe204"]
+[ext_resource type="Texture2D" uid="uid://rg5xdd0hmmw0" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_normal_voando1.png" id="9_3wh4t"]
+[ext_resource type="Texture2D" uid="uid://ss53loesu3lw" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu5.png" id="9_jdk38"]
+[ext_resource type="Texture2D" uid="uid://bijix6cllv7qw" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu6.png" id="10_b3mhe"]
+[ext_resource type="Texture2D" uid="uid://brn0os1eccpcp" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0001.png" id="10_g71s4"]
+[ext_resource type="Texture2D" uid="uid://bq6i3nlqf0o6f" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_normal_voando2.png" id="10_jtycd"]
+[ext_resource type="Texture2D" uid="uid://sljya6hlvg0b" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_normal_voando3.png" id="11_1qwnh"]
+[ext_resource type="Texture2D" uid="uid://bb2ep4o7v6l1j" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu7.png" id="11_2wn5p"]
+[ext_resource type="Texture2D" uid="uid://dhwpkcmyukl5u" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0003.png" id="11_jtycd"]
+[ext_resource type="Texture2D" uid="uid://begg304ypdmd4" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0004.png" id="12_1qwnh"]
+[ext_resource type="Texture2D" uid="uid://bjaojk2lxw1oi" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu8.png" id="12_2dsey"]
+[ext_resource type="Texture2D" uid="uid://d08emhuruhsre" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0005.png" id="13_nhfp5"]
+[ext_resource type="Texture2D" uid="uid://b65emcwrx3mxa" path="res://assets/boss/tatu/animations/spike_attack/novo_ataque_tatu9.png" id="14_0per5"]
+[ext_resource type="Texture2D" uid="uid://cd588ef45nqrx" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0006.png" id="14_sx1ls"]
+[ext_resource type="Texture2D" uid="uid://x7empbg1plxx" path="res://assets/boss/tatu/animations/spikes/espinhos2.png" id="15_8jk80"]
+[ext_resource type="Texture2D" uid="uid://2882doas5hi5" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0007.png" id="15_vxidd"]
+[ext_resource type="Texture2D" uid="uid://cb6c171xsxv3u" path="res://assets/boss/tatu/animations/spikes/espinhos3.png" id="16_by3d1"]
+[ext_resource type="Texture2D" uid="uid://yb3e8xmyhy36" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0008.png" id="16_xbi7a"]
+[ext_resource type="Texture2D" uid="uid://2du2r320bmbx" path="res://assets/boss/tatu/animations/spikes/espinhos4.png" id="17_6d27a"]
+[ext_resource type="Texture2D" uid="uid://oebqa8t1aavg" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0009.png" id="17_tck00"]
+[ext_resource type="Texture2D" uid="uid://sbu2r5x8lwln" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_ini1.png" id="18_27bsp"]
+[ext_resource type="Texture2D" uid="uid://dawk1hy8gv5tb" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0010.png" id="18_wxsfm"]
+[ext_resource type="Texture2D" uid="uid://8arxe14082en" path="res://assets/boss/tatu/animations/preda_attack/Sprite-0011.png" id="19_lu4gk"]
+[ext_resource type="Texture2D" uid="uid://cg883ci1drs4f" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_ini2.png" id="19_vh0ow"]
+[ext_resource type="Texture2D" uid="uid://wsl6ikqlfuqt" path="res://assets/boss/tatu/animations/preda_attack/predas/pedra_ini3.png" id="20_bbire"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7cf8d"]
+size = Vector2(135, 111.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5coe"]
+size = Vector2(248.805, 22.46)
+
+[sub_resource type="Animation" id="Animation_77nou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_knexa")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spinhos/spikes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_naht1")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spinhos/spikes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spinhos/spikes:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("spinhos/spikes:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-137, 61)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spinhos/colisao_spike:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("spinhos/colisao_spike:shape")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_d5coe")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("spinhos/colisao_spike:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-140, 58)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("predra/sprite_preda:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("predra/sprite_preda:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("predra:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cjm3i"]
+resource_name = "idle"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1, 1.5, 2.03333, 2.5, 3.03333, 3.5, 4, 4.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_knexa"), ExtResource("2_quem6"), ExtResource("1_knexa"), ExtResource("2_quem6"), ExtResource("1_knexa"), ExtResource("2_quem6"), ExtResource("3_j3ya4"), ExtResource("1_knexa"), ExtResource("2_quem6"), ExtResource("1_knexa")]
+}
+
+[sub_resource type="Animation" id="Animation_qpeia"]
+resource_name = "preda_attack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("predra/sprite_preda:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_27bsp"), ExtResource("19_vh0ow"), ExtResource("20_bbire"), ExtResource("9_3wh4t"), ExtResource("10_jtycd"), ExtResource("11_1qwnh"), ExtResource("10_jtycd"), ExtResource("11_1qwnh"), ExtResource("10_jtycd"), ExtResource("11_1qwnh"), ExtResource("10_jtycd"), ExtResource("11_1qwnh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 1, 1.06667, 1.13333, 1.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_g71s4"), ExtResource("11_jtycd"), ExtResource("12_1qwnh"), ExtResource("13_nhfp5"), ExtResource("14_sx1ls"), ExtResource("15_vxidd"), ExtResource("16_xbi7a"), ExtResource("17_tck00"), ExtResource("18_wxsfm"), ExtResource("19_lu4gk"), ExtResource("10_g71s4")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("predra/sprite_preda:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("predra:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.702702, 0.9, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(11, 0), Vector2(11, 0), Vector2(11, 0), Vector2(11, -15), Vector2(-627, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_idevt"]
+resource_name = "spike_attack"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.666667, 0.833333, 1.5, 1.66667, 1.86667, 2.36667, 2.66667, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_uesca"), ExtResource("6_l8jpx"), ExtResource("7_5swpb"), ExtResource("8_fe204"), ExtResource("9_jdk38"), ExtResource("10_b3mhe"), ExtResource("11_2wn5p"), ExtResource("12_2dsey"), ExtResource("11_2wn5p"), ExtResource("14_0per5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("spinhos/spikes:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.86667, 2.06667, 2.33333, 2.63333, 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_naht1"), ExtResource("15_8jk80"), ExtResource("16_by3d1"), ExtResource("17_6d27a"), ExtResource("16_by3d1"), ExtResource("17_6d27a"), ExtResource("16_by3d1"), ExtResource("17_6d27a"), ExtResource("16_by3d1"), ExtResource("17_6d27a"), ExtResource("17_6d27a"), ExtResource("17_6d27a")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("spinhos/spikes:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("spinhos/spikes:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.83333, 1.96667, 2.33333, 2.63333, 2.66667, 5),
+"transitions": PackedFloat32Array(1, 1e-05, 0.094101, 1, 1e-05, 1),
+"update": 0,
+"values": [Vector2(0.85, 0.85), Vector2(0.9, 0.9), Vector2(1, 1), Vector2(1, 1), Vector2(1.4, 1.2), Vector2(1.4, 1.2)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("spinhos/spikes:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.8, 2.06667, 2.33333, 2.63333, 5),
+"transitions": PackedFloat32Array(0.297303, 0.112656, 0.111906, 0.329877, 1.10218),
+"update": 0,
+"values": [Vector2(-168, 56), Vector2(-172, 56), Vector2(-182, 56), Vector2(-182, 56), Vector2(-829, 56)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("spinhos/colisao_spike:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("spinhos/colisao_spike:shape")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.86667, 2.06667, 2.63333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_d5coe"), SubResource("RectangleShape2D_d5coe"), SubResource("RectangleShape2D_d5coe")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("spinhos/colisao_spike:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.5, 1.86667, 2.06667, 2.63333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 0.329, 1.10218),
+"update": 0,
+"values": [Vector2(-24, 22), Vector2(-120, 58), Vector2(-140, 58), Vector2(-140, 58), Vector2(-780, 56)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8lqs"]
+_data = {
+"RESET": SubResource("Animation_77nou"),
+"idle": SubResource("Animation_cjm3i"),
+"preda_attack": SubResource("Animation_qpeia"),
+"spike_attack": SubResource("Animation_idevt")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27bsp"]
+size = Vector2(34, 35)
+
+[node name="tatu" type="CharacterBody2D"]
+position = Vector2(540, 234)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_qpt7j")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2(33.5, 2)
+shape = SubResource("RectangleShape2D_7cf8d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n8lqs")
+}
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(-10, 4)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_knexa")
+
+[node name="spinhos" type="Area2D" parent="."]
+collision_layer = 12
+
+[node name="spikes" type="Sprite2D" parent="spinhos"]
+position = Vector2(-137, 61)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_naht1")
+
+[node name="colisao_spike" type="CollisionShape2D" parent="spinhos"]
+position = Vector2(-140, 58)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("RectangleShape2D_d5coe")
+disabled = true
+
+[node name="predra" type="Area2D" parent="."]
+position = Vector2(11, 1)
+scale = Vector2(1.3, 1.3)
+
+[node name="colisao_preda" type="CollisionShape2D" parent="predra"]
+position = Vector2(-60, 41.5)
+shape = SubResource("RectangleShape2D_27bsp")
+
+[node name="sprite_preda" type="Sprite2D" parent="predra"]
+position = Vector2(-57, 45)
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="body_entered" from="spinhos" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="spinhos" to="." method="_on_hitbox_body_exited"]
+[connection signal="body_entered" from="predra" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_exited" from="predra" to="." method="_on_hitbox_body_exited"]

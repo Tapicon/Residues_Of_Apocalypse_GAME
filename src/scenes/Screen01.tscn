@@ -1,0 +1,85 @@
+[gd_scene load_steps=11 format=3 uid="uid://blm1bdg73y2lg"]
+
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="1_73yxk"]
+[ext_resource type="PackedScene" uid="uid://baafa5h6r6x8k" path="res://character/character_body_2d.tscn" id="4_ky47y"]
+[ext_resource type="Texture2D" uid="uid://dce5tnkakiyhe" path="res://assets/sprites/buttons/button.png" id="4_m7fef"]
+[ext_resource type="Texture2D" uid="uid://b7mms0red4rjr" path="res://assets/sprites/buttons/Ovea.png" id="5_nfc03"]
+[ext_resource type="Script" uid="uid://cdrbppm6t1w1g" path="res://scripts/charafcter/top-down/character_scriot.gd" id="6_7bwl6"]
+[ext_resource type="Texture2D" uid="uid://pcb2lqblvbq2" path="res://assets/sprites/buttons/asdkasda.png" id="6_s7egt"]
+
+[sub_resource type="GDScript" id="GDScript_plf6q"]
+script/source = "extends Node
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="Resource" id="Resource_o4gra"]
+metadata/__load_path__ = "res://assets/sprites/character/character-test-Recovered.png"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfwxj"]
+size = Vector2(7, 3)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0y5sm"]
+
+[node name="Node" type="Node"]
+script = SubResource("GDScript_plf6q")
+
+[node name="pause_menu" parent="." instance=ExtResource("1_73yxk")]
+visible = false
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_ky47y")]
+script = ExtResource("6_7bwl6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(157, 89)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(86, -4)
+texture = SubResource("Resource_o4gra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(85.5, 3.5)
+shape = SubResource("RectangleShape2D_wfwxj")
+one_way_collision_margin = 0.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 65.0
+offset_bottom = 39.0
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="left" type="TouchScreenButton" parent="controls"]
+position = Vector2(26, 117)
+texture_normal = ExtResource("4_m7fef")
+texture_pressed = SubResource("CompressedTexture2D_0y5sm")
+action = "move_left"
+
+[node name="right" type="TouchScreenButton" parent="controls"]
+position = Vector2(82, 118)
+texture_normal = ExtResource("4_m7fef")
+texture_pressed = ExtResource("6_s7egt")
+action = "move_right"
+
+[node name="up" type="TouchScreenButton" parent="controls"]
+position = Vector2(57, 86)
+scale = Vector2(0.84375, 0.8125)
+texture_normal = ExtResource("4_m7fef")
+texture_pressed = ExtResource("5_nfc03")
+action = "move_up"
+
+[node name="down" type="TouchScreenButton" parent="controls"]
+position = Vector2(57, 150)
+scale = Vector2(0.84375, 0.8125)
+texture_normal = ExtResource("4_m7fef")
+texture_pressed = SubResource("CompressedTexture2D_0y5sm")
+action = "move_down"

@@ -1,0 +1,142 @@
+[gd_scene load_steps=21 format=3 uid="uid://ce8napw63nojk"]
+
+[ext_resource type="Script" path="res://scripts/charafcter/battle/player_battle_main.gd" id="1_pbvx5"]
+[ext_resource type="Texture2D" uid="uid://dmjs0tby72djp" path="res://assets/sprites/character/animations/run_novo/correndo4.png" id="2_8qng3"]
+[ext_resource type="Texture2D" uid="uid://ekuayo0gx14f" path="res://assets/sprites/character/animations/dash/DASH1.png" id="2_riete"]
+[ext_resource type="Texture2D" uid="uid://dntmbwb6gr1u1" path="res://assets/sprites/character/animations/run_novo/correndo1.png" id="3_grgol"]
+[ext_resource type="Texture2D" uid="uid://cchuu0dpjuie7" path="res://assets/sprites/character/animations/dash/DASH2.png" id="3_resaj"]
+[ext_resource type="Texture2D" uid="uid://dbfm5aedvsdeg" path="res://assets/sprites/character/animations/run_novo/correndo2.png" id="4_lysvl"]
+[ext_resource type="Texture2D" uid="uid://cvv4yybe4iphm" path="res://assets/sprites/character/animations/dash/DASH3.png" id="4_wt6y5"]
+[ext_resource type="Texture2D" uid="uid://inscy1vq42fj" path="res://assets/sprites/character/animations/dash/DASH4.png" id="5_qsg5j"]
+[ext_resource type="Texture2D" uid="uid://b16inp3roa4h3" path="res://assets/sprites/character/animations/run_novo/correndo3.png" id="5_v3fiw"]
+[ext_resource type="PackedScene" uid="uid://d1gn776url2nt" path="res://scenes/hitbox/hitbox_Player.tscn" id="6_dff02"]
+[ext_resource type="Texture2D" uid="uid://cupi68w6lhix7" path="res://assets/sprites/character/animations/idle/personagm respirando1.png" id="6_riete"]
+[ext_resource type="Texture2D" uid="uid://c8tgh4yne8mqq" path="res://assets/sprites/character/animations/idle/personagm respirando2.png" id="7_resaj"]
+[ext_resource type="Texture2D" uid="uid://dafenorbe7yau" path="res://assets/sprites/character/animations/shot/PersonagemATIRANDO1.png" id="10_yj8a1"]
+[ext_resource type="Texture2D" uid="uid://cgt8idwnnn267" path="res://assets/sprites/character/animations/shot/PersonagemATIRANDO2.png" id="11_q326q"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="16_22pva"]
+[ext_resource type="AudioStream" uid="uid://bwo74tv4q2qmy" path="res://assets/audio/sound_effects/run/passos.mp3" id="16_dgyn4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix7s2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_riete")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_resaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wt6y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qsg5j")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8qng3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_grgol")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_grgol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lysvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_grgol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v3fiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8qng3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v3fiw")
+}],
+"loop": true,
+"name": &"run",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_yj8a1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q326q")
+}],
+"loop": true,
+"name": &"shot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_riete")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_resaj")
+}],
+"loop": true,
+"name": &"standed",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqb81"]
+size = Vector2(13, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj2dk"]
+size = Vector2(16, 75)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhw0e"]
+font = ExtResource("16_22pva")
+font_color = Color(0.993, 1, 0.79, 1)
+
+[node name="node_Player" type="CharacterBody2D"]
+position = Vector2(175, 101)
+collision_mask = 2
+script = ExtResource("1_pbvx5")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(9.53674e-07, 3.33786e-06)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_ix7s2")
+animation = &"shot"
+frame_progress = 0.297301
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -4.5)
+shape = SubResource("RectangleShape2D_iqb81")
+
+[node name="Area2D" parent="." instance=ExtResource("6_dff02")]
+collision_layer = 16
+collision_mask = 28
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -4.5)
+shape = SubResource("RectangleShape2D_gj2dk")
+debug_color = Color(0.803831, 0.379158, 0.468387, 0.42)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -31.0
+offset_top = -60.0
+offset_right = 32.0
+offset_bottom = -37.0
+text = "Vida: 5"
+label_settings = SubResource("LabelSettings_rhw0e")
+
+[node name="run_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_dgyn4")
+volume_db = -15.0

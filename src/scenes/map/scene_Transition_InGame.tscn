@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjoki6t2vrd1f"]
+
+[ext_resource type="Texture2D" uid="uid://ba0u3i7b1nykn" path="res://assets/sprites/character/Sprite-0001-..png" id="1_lo1wq"]
+[ext_resource type="Script" uid="uid://b3elbub52vytm" path="res://scripts/map/scene_transition.gd" id="1_wnjo5"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="3_ndj8q"]
+[ext_resource type="Texture2D" uid="uid://ca1x2yjpwxla4" path="res://assets/sprites/buttons/controls/butao1.png" id="4_17uhm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x4n7"]
+font = ExtResource("3_ndj8q")
+font_size = 11
+
+[node name="Scene_Transition_InGame" type="Area2D"]
+position = Vector2(127, 129)
+collision_layer = 2
+script = ExtResource("1_wnjo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lo1wq")
+
+[node name="mesage" type="VBoxContainer" parent="."]
+offset_left = -33.0
+offset_top = -67.0
+offset_right = 67.0
+offset_bottom = -27.0
+
+[node name="mtext" type="Label" parent="mesage"]
+layout_mode = 2
+text = "Pressione"
+label_settings = SubResource("LabelSettings_8x4n7")
+metadata/_edit_use_anchors_ = true
+
+[node name="mtext2" type="Label" parent="mesage"]
+layout_mode = 2
+text = "para interagir"
+label_settings = SubResource("LabelSettings_8x4n7")
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="mesage"]
+position = Vector2(87, 4)
+scale = Vector2(0.565, 0.565)
+texture = ExtResource("4_17uhm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

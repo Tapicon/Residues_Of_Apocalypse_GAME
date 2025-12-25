@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1gn776url2nt"]
+
+[sub_resource type="GDScript" id="GDScript_11pnq"]
+script/source = "extends Area2D
+
+@export var damage: int = 1
+@export var damage_interval: float = 1.0
+
+var player_in_damage_area := false
+var player_ref: Node2D = null
+var timer := 0.0
+
+func _process(delta):
+	if player_in_damage_area and player_ref:
+		timer += delta
+		if timer >= damage_interval:
+			if player_ref.has_method(\"_take_hit\"):
+				player_ref._take_hit(damage)
+			timer = 0.0
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Enemy:  # Se o corpo que colidiu for o jogador
+		damage = body.base_damage
+		player_in_damage_area = true
+		player_ref = owner
+		#takehit
+
+
+func _on_body_exited(body: Node2D) -> void:
+	player_in_damage_area = false
+	player_ref = null
+	timer = 0.0
+"
+
+[node name="Area2D" type="Area2D"]
+script = SubResource("GDScript_11pnq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

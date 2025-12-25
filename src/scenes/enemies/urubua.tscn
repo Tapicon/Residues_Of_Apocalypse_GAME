@@ -1,0 +1,234 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlh77nvxcmg4y"]
+
+[ext_resource type="Script" path="res://boss_urubua.gd" id="1_pwnbg"]
+[ext_resource type="Texture2D" uid="uid://bh4cdr4hborl8" path="res://assets/boss/urubua/urubuanimation1.png" id="2_p4olt"]
+[ext_resource type="Texture2D" uid="uid://bqoomeobycjrr" path="res://assets/boss/urubua/urubuanimation2.png" id="3_gp4pg"]
+[ext_resource type="Texture2D" uid="uid://dpofd2q4vkxqi" path="res://assets/boss/urubua/urubuanimation3.png" id="4_36xnd"]
+[ext_resource type="Texture2D" uid="uid://cgomo3ume224v" path="res://assets/boss/urubua/urubuanimation4.png" id="5_i6786"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2o331"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p4olt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gp4pg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_36xnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i6786")
+}],
+"loop": true,
+"name": &"voo_anim",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ct4g6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_p4olt")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("animation:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [SubResource("SpriteFrames_2o331")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_t2est"]
+resource_name = "voo"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_p4olt"), ExtResource("3_gp4pg"), ExtResource("4_36xnd"), ExtResource("5_i6786"), ExtResource("2_p4olt"), ExtResource("3_gp4pg"), ExtResource("4_36xnd"), ExtResource("5_i6786")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.5, 2.7, 2.9, 3.1, 3.3, 3.5, 3.7, 3.9, 4.1, 4.3, 4.5, 4.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(2, 2), Vector2(-2, 2), Vector2(-2, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("animation:sprite_frames")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [SubResource("SpriteFrames_2o331")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(560, 62), Vector2(75, 62), Vector2(560, 62)]
+}
+
+[sub_resource type="Animation" id="Animation_63xyr"]
+resource_name = "attack_lixos"
+
+[sub_resource type="Animation" id="Animation_8m4c1"]
+resource_name = "attack_base"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("animation:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [SubResource("SpriteFrames_2o331")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("animation:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("animation:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrij3"]
+_data = {
+"RESET": SubResource("Animation_ct4g6"),
+"attack_base": SubResource("Animation_8m4c1"),
+"attack_lixos": SubResource("Animation_63xyr"),
+"voo": SubResource("Animation_t2est")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0plq"]
+size = Vector2(133, 68)
+
+[node name="urubua" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_pwnbg")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yrij3")
+}
+
+[node name="sprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(233, -122)
+scale = Vector2(2, 2)
+texture = ExtResource("2_p4olt")
+
+[node name="colision" type="CollisionShape2D" parent="."]
+position = Vector2(5.22101, -11)
+shape = SubResource("RectangleShape2D_q0plq")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2o331")
+animation = &"voo_anim"
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkmmn4787uprg"]
+
+[ext_resource type="Texture2D" uid="uid://cljvdnrjtdlv1" path="res://assets/sprites/cenarios/cenario1-verde-modifited.png" id="1_q48xc"]
+[ext_resource type="PackedScene" uid="uid://ce8napw63nojk" path="res://scenes/player/player_battle.tscn" id="1_ye56m"]
+[ext_resource type="Texture2D" uid="uid://pcb2lqblvbq2" path="res://assets/sprites/buttons/asdkasda.png" id="2_3hc6o"]
+[ext_resource type="PackedScene" uid="uid://bqv6mej4p7e0i" path="res://scenes/enemies/lobisomem.tscn" id="5_ip3x1"]
+[ext_resource type="PackedScene" uid="uid://cpk5lnlvvc5re" path="res://scenes/interfaes/layer_hud.tscn" id="5_khcy6"]
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="6_gcvnq"]
+[ext_resource type="Script" path="res://scripts/map/scene_transition_change.gd" id="6_pyxuh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1btky"]
+size = Vector2(676, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oqvi"]
+size = Vector2(12, 354)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(163, 86)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(157, 94)
+scale = Vector2(2, 2)
+texture = ExtResource("1_q48xc")
+
+[node name="lobisomem" parent="." instance=ExtResource("5_ip3x1")]
+position = Vector2(555, 162)
+
+[node name="node_Player" parent="." instance=ExtResource("1_ye56m")]
+position = Vector2(72, 147)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(320, 373)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(-9.00001, 8)
+scale = Vector2(1.36719, 0.308674)
+texture = ExtResource("2_3hc6o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2, 10)
+shape = SubResource("RectangleShape2D_1btky")
+
+[node name="hall2" type="StaticBody2D" parent="."]
+position = Vector2(317, 54)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall2"]
+position = Vector2(328, 112)
+shape = SubResource("RectangleShape2D_0oqvi")
+
+[node name="hall" type="StaticBody2D" parent="."]
+position = Vector2(-14, 50)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall"]
+position = Vector2(14, 115)
+shape = SubResource("RectangleShape2D_0oqvi")
+
+[node name="layer_HUD" parent="." instance=ExtResource("5_khcy6")]
+
+[node name="Transition" type="CanvasLayer" parent="."]
+script = ExtResource("6_pyxuh")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="pause_menu" parent="." instance=ExtResource("6_gcvnq")]
+visible = false

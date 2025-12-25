@@ -1,0 +1,132 @@
+[gd_scene load_steps=17 format=3 uid="uid://t80bmep6e22h"]
+
+[ext_resource type="Script" path="res://scripts/cenas/battle_3.gd" id="1_gd6xs"]
+[ext_resource type="Texture2D" uid="uid://bqjyfo08svate" path="res://assets/sprites/cenarios/cenario 6 (1).png" id="1_svkbo"]
+[ext_resource type="PackedScene" uid="uid://ce8napw63nojk" path="res://scenes/player/player_battle.tscn" id="2_yemur"]
+[ext_resource type="PackedScene" uid="uid://oj0cwxdiokmg" path="res://scenes/enemies/tatu.tscn" id="3_mxtd3"]
+[ext_resource type="PackedScene" uid="uid://cpk5lnlvvc5re" path="res://scenes/interfaes/layer_hud.tscn" id="3_tcr32"]
+[ext_resource type="PackedScene" uid="uid://b3lfylwsv7cy2" path="res://scenes/interfaes/boss_bar.tscn" id="4_77h8h"]
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="5_mrr6t"]
+[ext_resource type="PackedScene" uid="uid://b04338bibrmnl" path="res://scenes/interfaes/alert.tscn" id="6_lweqq"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="7_y0va4"]
+[ext_resource type="PackedScene" uid="uid://bwhgckxmv1c8p" path="res://transition_Animation.tscn" id="8_nvr1e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0a82j"]
+size = Vector2(676, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wxnq"]
+size = Vector2(12, 354)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p50kj"]
+font = ExtResource("7_y0va4")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_76r21"]
+size = Vector2(130, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqtrm"]
+font = ExtResource("7_y0va4")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x80ov"]
+size = Vector2(80, 20)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_gd6xs")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+texture = ExtResource("1_svkbo")
+
+[node name="tatu" parent="." instance=ExtResource("3_mxtd3")]
+position = Vector2(549, 260)
+
+[node name="node_Player" parent="." instance=ExtResource("2_yemur")]
+position = Vector2(114, 209)
+scale = Vector2(0.9, 0.9)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(320, 373)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2, -3)
+shape = SubResource("RectangleShape2D_0a82j")
+
+[node name="hall2" type="StaticBody2D" parent="."]
+position = Vector2(317, 54)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall2"]
+position = Vector2(328, 112)
+shape = SubResource("RectangleShape2D_1wxnq")
+
+[node name="hall" type="StaticBody2D" parent="."]
+position = Vector2(-14, 50)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall"]
+position = Vector2(14, 115)
+shape = SubResource("RectangleShape2D_1wxnq")
+
+[node name="layer_HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_tcr32")]
+player = NodePath("../node_Player")
+
+[node name="pause_menu" parent="." instance=ExtResource("5_mrr6t")]
+visible = false
+
+[node name="TextureProgressBar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("4_77h8h")]
+offset_left = 85.0
+offset_top = 46.0
+offset_right = 629.0
+offset_bottom = 66.0
+boss = NodePath("../tatu")
+
+[node name="tela_vitoria" parent="." instance=ExtResource("6_lweqq")]
+process_mode = 3
+text = "Você Venceu!!!"
+type_alert = "win"
+
+[node name="Sair da Beta" type="Label" parent="tela_vitoria"]
+offset_left = 261.0
+offset_top = 192.0
+offset_right = 382.0
+offset_bottom = 215.0
+text = "Sair da Beta"
+label_settings = SubResource("LabelSettings_p50kj")
+
+[node name="sair" type="TouchScreenButton" parent="tela_vitoria/Sair da Beta"]
+position = Vector2(59, 8)
+shape = SubResource("RectangleShape2D_76r21")
+
+[node name="tela_morte" parent="." instance=ExtResource("6_lweqq")]
+process_mode = 3
+text = "Você Morreu"
+type_alert = "kill"
+
+[node name="restart_lbl" type="Label" parent="tela_morte"]
+offset_left = 284.0
+offset_top = 199.0
+offset_right = 372.0
+offset_bottom = 222.0
+text = "Reiniciar"
+label_settings = SubResource("LabelSettings_kqtrm")
+
+[node name="restart" type="TouchScreenButton" parent="tela_morte/restart_lbl"]
+position = Vector2(43, 8)
+shape = SubResource("RectangleShape2D_x80ov")
+
+[node name="Transition" parent="." instance=ExtResource("8_nvr1e")]
+process_mode = 3
+visible = false
+
+[node name="bg_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+
+[connection signal="visibility_changed" from="tela_vitoria" to="tela_vitoria" method="play_sound"]
+[connection signal="pressed" from="tela_vitoria/Sair da Beta/sair" to="pause_menu" method="_on_touch_screen_button_2_released"]
+[connection signal="visibility_changed" from="tela_morte" to="tela_morte" method="play_sound"]
+[connection signal="pressed" from="tela_morte/restart_lbl/restart" to="pause_menu" method="_on_touch_screen_button_3_pressed"]
+[connection signal="finished" from="bg_sound" to="." method="_on_bg_sound_finished"]

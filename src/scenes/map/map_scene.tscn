@@ -1,0 +1,129 @@
+[gd_scene load_steps=23 format=3 uid="uid://cohob6vtijlme"]
+
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="1_mnk4x"]
+[ext_resource type="Texture2D" uid="uid://cv7soapxfr6dj" path="res://assets/sprites/tilemap/calçada2.png" id="1_y280i"]
+[ext_resource type="PackedScene" uid="uid://baafa5h6r6x8k" path="res://character/character_body_2d.tscn" id="2_uckut"]
+[ext_resource type="Script" uid="uid://cdrbppm6t1w1g" path="res://scripts/charafcter/top-down/character_scriot.gd" id="3_vv2yq"]
+[ext_resource type="Texture2D" uid="uid://fhtwb4o34fg" path="res://assets/sprites/character/animations/mini andando1.png" id="4_3b8m8"]
+[ext_resource type="Texture2D" uid="uid://bx2vdi30cnufq" path="res://assets/sprites/buttons/controls/btn_lado01.png" id="6_26t4l"]
+[ext_resource type="Texture2D" uid="uid://dxqnvfiugrg6v" path="res://assets/sprites/buttons/controls/btn_lado03.png" id="6_gkd83"]
+[ext_resource type="Texture2D" uid="uid://cg4fjggatkkpv" path="res://assets/sprites/buttons/controls/btn_lado02.png" id="7_gr3bm"]
+[ext_resource type="Texture2D" uid="uid://bvtflsk2kpfvv" path="res://assets/sprites/buttons/controls/btn_lado04.png" id="7_wxont"]
+[ext_resource type="PackedScene" uid="uid://cjoki6t2vrd1f" path="res://scenes/map/scene_Transition_InGame.tscn" id="8_y6gra"]
+[ext_resource type="PackedScene" uid="uid://bwhgckxmv1c8p" path="res://transition_Animation.tscn" id="9_i8p2f"]
+[ext_resource type="Texture2D" uid="uid://c4cykhqotihhd" path="res://assets/sprites/buttons/controls/btn_cima03.png" id="10_b31js"]
+[ext_resource type="Texture2D" uid="uid://rf8dpqoebm82" path="res://assets/sprites/buttons/controls/btn_cima04.png" id="11_j6dqt"]
+[ext_resource type="Texture2D" uid="uid://cmbpxohmhvcsb" path="res://assets/sprites/buttons/controls/btn_cima1.png" id="11_w5w7m"]
+[ext_resource type="Texture2D" uid="uid://daxc36jjrgnta" path="res://assets/sprites/buttons/controls/btn_cima2.png" id="12_k0f5a"]
+[ext_resource type="Texture2D" uid="uid://ca1x2yjpwxla4" path="res://assets/sprites/buttons/controls/butao1.png" id="14_uyx6r"]
+[ext_resource type="Texture2D" uid="uid://cypj84nlspbm8" path="res://assets/sprites/buttons/controls/butao2.png" id="15_71xlt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjarf"]
+texture = ExtResource("1_y280i")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6u6rh"]
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_sjarf")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv1n0"]
+size = Vector2(7, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccsx2"]
+size = Vector2(20, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afy50"]
+size = Vector2(20, 50)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(146, 92)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_6u6rh")
+format = 2
+layer_0/tile_data = PackedInt32Array(131073, 65537, 2, 131074, 65537, 2, 131075, 65537, 2, 131076, 65537, 2, 131077, 65537, 2, 131078, 65537, 2, 131079, 65537, 2, 131080, 65537, 2, 131081, 65537, 2, 131082, 65537, 2, 131083, 65537, 2, 131084, 65537, 2, 131085, 65537, 2, 131086, 65537, 2, 131087, 65537, 2, 131088, 65537, 2, 131089, 65537, 2, 131090, 65537, 2, 131091, 65537, 2, 131092, 65537, 2, 131093, 65537, 2, 131094, 65537, 2, 131095, 65537, 2, 131096, 65537, 2, 131097, 65537, 2, 131098, 65537, 2, 196634, 65537, 2, 196633, 65537, 2, 196632, 65537, 2, 196631, 65537, 2, 196630, 65537, 2, 196629, 65537, 2, 196628, 65537, 2, 196627, 65537, 2, 196626, 65537, 2, 196625, 65537, 2, 196624, 65537, 2, 196623, 65537, 2, 196622, 65537, 2, 196621, 65537, 2, 196620, 65537, 2, 196619, 65537, 2, 196618, 65537, 2, 196617, 65537, 2, 196616, 65537, 2, 196615, 65537, 2, 196614, 65537, 2, 196613, 65537, 2, 196612, 65537, 2, 196611, 65537, 2, 196610, 65537, 2, 196609, 65537, 2, 131072, 65537, 2, 196608, 65537, 2, 65536, 65537, 2, 65537, 65537, 2, 65538, 65537, 2, 65539, 65537, 2, 65540, 65537, 2, 65541, 65537, 2, 65542, 65537, 2, 65543, 65537, 2, 65544, 65537, 2, 65545, 65537, 2, 65546, 65537, 2, 65547, 65537, 2, 65548, 65537, 2, 65549, 65537, 2, 65550, 65537, 2, 65551, 65537, 2, 65552, 65537, 2, 65553, 65537, 2, 65554, 65537, 2, 65555, 65537, 2, 65556, 65537, 2, 65557, 65537, 2, 65558, 65537, 2, 65559, 65537, 2, 65560, 65537, 2, 65561, 65537, 2, 65562, 65537, 2, 131071, 65537, 2, 196607, 65537, 2, 262143, 65537, 2, 327679, 65537, 2, 262144, 65537, 2, 262145, 65537, 2, 262146, 65537, 2, 262147, 65537, 2, 262148, 65537, 2, 262149, 65537, 2, 262150, 65537, 2, 262151, 65537, 2, 262152, 65537, 2, 262153, 65537, 2, 262154, 65537, 2, 262155, 65537, 2, 262156, 65537, 2, 262157, 65537, 2, 262158, 65537, 2, 262159, 65537, 2, 262160, 65537, 2, 262161, 65537, 2, 262162, 65537, 2, 262163, 65537, 2, 262164, 65537, 2, 262165, 65537, 2, 262166, 65537, 2, 262167, 65537, 2, 262168, 65537, 2, 262169, 65537, 2, 262170, 65537, 2)
+
+[node name="pause_menu" parent="." instance=ExtResource("1_mnk4x")]
+visible = false
+
+[node name="Player" parent="." instance=ExtResource("2_uckut")]
+scale = Vector2(2, 2)
+collision_mask = 2
+script = ExtResource("3_vv2yq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(331, 82)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(86, -4)
+scale = Vector2(2, 2)
+texture = ExtResource("4_3b8m8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(85.5, 3.5)
+shape = SubResource("RectangleShape2D_gv1n0")
+one_way_collision_margin = 0.0
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="left" type="TouchScreenButton" parent="controls"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(51, 259)
+texture_normal = ExtResource("6_gkd83")
+texture_pressed = ExtResource("7_wxont")
+action = "move_left"
+
+[node name="right" type="TouchScreenButton" parent="controls"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(128, 259)
+texture_normal = ExtResource("6_26t4l")
+texture_pressed = ExtResource("7_gr3bm")
+action = "move_right"
+
+[node name="up" type="TouchScreenButton" parent="controls"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(91, 228)
+texture_normal = ExtResource("10_b31js")
+texture_pressed = ExtResource("11_j6dqt")
+action = "move_up"
+
+[node name="down" type="TouchScreenButton" parent="controls"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(91, 291)
+texture_normal = ExtResource("11_w5w7m")
+texture_pressed = ExtResource("12_k0f5a")
+action = "move_down"
+
+[node name="action" type="TouchScreenButton" parent="controls"]
+modulate = Color(1, 1, 1, 0.705882)
+position = Vector2(532, 249)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("14_uyx6r")
+texture_pressed = ExtResource("15_71xlt")
+action = "interact"
+
+[node name="Phase1_Transition" parent="." instance=ExtResource("8_y6gra")]
+position = Vector2(367, 150)
+next_scene = "res://scenes/batle.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase1_Transition"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_ccsx2")
+
+[node name="Transition" parent="." instance=ExtResource("9_i8p2f")]
+
+[node name="Phase2_Transition" parent="." instance=ExtResource("8_y6gra")]
+position = Vector2(397, 151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Phase2_Transition"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_afy50")

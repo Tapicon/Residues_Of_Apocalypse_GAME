@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://wvioc6hlbo2s"
+path="res://.godot/imported/aespa 에스파 'Whiplash' (Official Instrumental).mp3-b5be3746e3efe5f35383c1366cc3b1f6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/songs/bg_souds/aespa 에스파 'Whiplash' (Official Instrumental).mp3"
+dest_files=["res://.godot/imported/aespa 에스파 'Whiplash' (Official Instrumental).mp3-b5be3746e3efe5f35383c1366cc3b1f6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://boy7m5hhjlm1k"
+path="res://.godot/imported/aespa 에스파 'Supernova' (Official Instrumental).mp3-94eefebf704002033167a4af5fe0fd86.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/songs/bg_souds/aespa 에스파 'Supernova' (Official Instrumental).mp3"
+dest_files=["res://.godot/imported/aespa 에스파 'Supernova' (Official Instrumental).mp3-94eefebf704002033167a4af5fe0fd86.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

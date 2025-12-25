@@ -1,0 +1,181 @@
+[gd_scene load_steps=24 format=3 uid="uid://dkmmn4787uprg"]
+
+[ext_resource type="Script" path="res://scripts/cenas/batle_scene_script.gd" id="1_atjgq"]
+[ext_resource type="Texture2D" uid="uid://d372wsjrhshfr" path="res://assets/sprites/cenarios/city_scenary/cenario_completo_animado1.png" id="2_yrva3"]
+[ext_resource type="Texture2D" uid="uid://cg6srhysute77" path="res://assets/sprites/cenarios/city_scenary/cenario_completo_animado2.png" id="3_rumqa"]
+[ext_resource type="Texture2D" uid="uid://b0io1rhglurd2" path="res://assets/sprites/cenarios/city_scenary/cenario_completo_animado3.png" id="4_owufp"]
+[ext_resource type="Texture2D" uid="uid://cmwbbd4qhc8pt" path="res://assets/sprites/cenarios/city_scenary/cenario_completo_animado4.png" id="5_apvag"]
+[ext_resource type="Texture2D" uid="uid://baxnbot6g4vch" path="res://assets/sprites/cenarios/city_scenary/cenario_completo_animado5.png" id="6_ll08a"]
+[ext_resource type="PackedScene" uid="uid://bqv6mej4p7e0i" path="res://scenes/enemies/lobisomem.tscn" id="7_84qvs"]
+[ext_resource type="PackedScene" uid="uid://ce8napw63nojk" path="res://scenes/player/player_battle.tscn" id="8_byyky"]
+[ext_resource type="Texture2D" uid="uid://pcb2lqblvbq2" path="res://assets/sprites/buttons/asdkasda.png" id="9_sh5dg"]
+[ext_resource type="PackedScene" uid="uid://cpk5lnlvvc5re" path="res://scenes/interfaes/layer_hud.tscn" id="10_owq1d"]
+[ext_resource type="Script" path="res://scripts/map/scene_transition_change.gd" id="11_tyv5l"]
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="12_jxgt7"]
+[ext_resource type="PackedScene" uid="uid://b04338bibrmnl" path="res://scenes/interfaes/alert.tscn" id="13_ugptt"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="14_gauua"]
+[ext_resource type="PackedScene" uid="uid://b3lfylwsv7cy2" path="res://scenes/interfaes/boss_bar.tscn" id="15_gcj85"]
+[ext_resource type="AudioStream" uid="uid://bwepmmuxbprcx" path="res://assets/audio/sound_effects/interfaces/GAME_OVER.mp3" id="15_rumqa"]
+[ext_resource type="AudioStream" uid="uid://qtfl2e2k8mg6" path="res://assets/audio/sound_effects/interfaces/WINS.mp3" id="17_owufp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_86h0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yrva3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rumqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_owufp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_apvag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ll08a")
+}],
+"loop": true,
+"name": &"anim",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1btky"]
+size = Vector2(676, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0oqvi"]
+size = Vector2(12, 354)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1gvvp"]
+font = ExtResource("14_gauua")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7045"]
+size = Vector2(80, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4l37"]
+size = Vector2(130, 20)
+
+[node name="batle1" type="Node2D"]
+script = ExtResource("1_atjgq")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(320, 180)
+collision_layer = 2
+collision_mask = 2
+
+[node name="background" type="AnimatedSprite2D" parent="StaticBody2D2"]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_86h0b")
+animation = &"anim"
+
+[node name="lobisomem" parent="." instance=ExtResource("7_84qvs")]
+position = Vector2(524, 264)
+
+[node name="node_Player" parent="." instance=ExtResource("8_byyky")]
+position = Vector2(70, 295)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(320, 373)
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(-10, 31)
+scale = Vector2(1.36719, 0.308674)
+texture = ExtResource("9_sh5dg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2, 5.5)
+shape = SubResource("RectangleShape2D_1btky")
+
+[node name="hall2" type="StaticBody2D" parent="."]
+position = Vector2(317, 54)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall2"]
+position = Vector2(328, 112)
+shape = SubResource("RectangleShape2D_0oqvi")
+
+[node name="hall" type="StaticBody2D" parent="."]
+position = Vector2(-14, 50)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall"]
+position = Vector2(14, 115)
+shape = SubResource("RectangleShape2D_0oqvi")
+
+[node name="layer_HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("10_owq1d")]
+process_mode = 3
+player = NodePath("../node_Player")
+
+[node name="pause_menu" parent="." instance=ExtResource("12_jxgt7")]
+visible = false
+
+[node name="Transition" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("11_tyv5l")
+
+[node name="ColorRect" type="ColorRect" parent="Transition"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="tela_morte" parent="." instance=ExtResource("13_ugptt")]
+text = "Você Morreu"
+
+[node name="restart_lbl" type="Label" parent="tela_morte"]
+offset_left = 284.0
+offset_top = 199.0
+offset_right = 372.0
+offset_bottom = 222.0
+text = "Reiniciar"
+label_settings = SubResource("LabelSettings_1gvvp")
+
+[node name="restart" type="TouchScreenButton" parent="tela_morte/restart_lbl"]
+position = Vector2(43, 8)
+shape = SubResource("RectangleShape2D_s7045")
+
+[node name="morte" type="AudioStreamPlayer2D" parent="tela_morte"]
+stream = ExtResource("15_rumqa")
+
+[node name="TextureProgressBar" parent="." node_paths=PackedStringArray("boss") instance=ExtResource("15_gcj85")]
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 79.0
+offset_top = 47.0
+offset_right = 623.0
+offset_bottom = 67.0
+grow_vertical = 2
+boss = NodePath("../lobisomem")
+
+[node name="tela_vitoria" parent="." instance=ExtResource("13_ugptt")]
+text = "Você Venceu!!!"
+
+[node name="Sair da Beta" type="Label" parent="tela_vitoria"]
+offset_left = 261.0
+offset_top = 192.0
+offset_right = 382.0
+offset_bottom = 215.0
+text = "Sair da Beta"
+label_settings = SubResource("LabelSettings_1gvvp")
+
+[node name="sair" type="TouchScreenButton" parent="tela_vitoria/Sair da Beta"]
+position = Vector2(59, 8)
+shape = SubResource("RectangleShape2D_c4l37")
+
+[node name="vitoria" type="AudioStreamPlayer2D" parent="tela_vitoria"]
+stream = ExtResource("17_owufp")
+
+[node name="bg_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+
+[connection signal="pressed" from="tela_morte/restart_lbl/restart" to="pause_menu" method="_on_touch_screen_button_3_pressed"]
+[connection signal="pressed" from="tela_vitoria/Sair da Beta/sair" to="pause_menu" method="_on_touch_screen_button_2_released"]
+[connection signal="finished" from="bg_sound" to="." method="_on_bg_sound_finished"]

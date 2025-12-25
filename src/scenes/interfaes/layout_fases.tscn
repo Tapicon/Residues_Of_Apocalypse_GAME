@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://bqepel07onhu7"]
+
+[ext_resource type="Texture2D" uid="uid://bqohkh7cn2hxo" path="res://assets/sprites/cenarios/cenario23456.png" id="1_0dkb2"]
+[ext_resource type="Script" path="res://scripts/telas/layout_fases.gd" id="1_g1cb2"]
+[ext_resource type="Texture2D" uid="uid://d4deudvqk2ejh" path="res://assets/sprites/layouts/botoes_fases/botaourubu1.png" id="2_bdgi7"]
+[ext_resource type="Texture2D" uid="uid://d3k1ixrgie325" path="res://assets/sprites/layouts/botoes_fases/botaourubu2.png" id="3_ujkvq"]
+[ext_resource type="Texture2D" uid="uid://dmedvl6lxtylj" path="res://assets/sprites/layouts/botoes_fases/botaotatu1.png" id="4_0u3qm"]
+[ext_resource type="Texture2D" uid="uid://dy6i5u8kski5o" path="res://assets/sprites/layouts/botoes_fases/botaotatu2.png" id="5_1o0nf"]
+[ext_resource type="Texture2D" uid="uid://dhpesypb0xxux" path="res://assets/sprites/layouts/botoes_fases/botaolobo1.png" id="6_jboai"]
+[ext_resource type="Texture2D" uid="uid://cvhgb8u58fofk" path="res://assets/sprites/layouts/botoes_fases/botaolobo2.png" id="7_0bhd3"]
+[ext_resource type="PackedScene" uid="uid://bwhgckxmv1c8p" path="res://transition_Animation.tscn" id="9_leusy"]
+[ext_resource type="Texture2D" uid="uid://cdlfh4mv5paxm" path="res://assets/sprites/buttons/controls/butao_amalero1.png" id="9_slhkt"]
+[ext_resource type="Texture2D" uid="uid://47n5w7rs52j" path="res://assets/sprites/buttons/controls/butao_amalero2.png" id="10_hlj4q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lbwd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0dkb2")
+}],
+"loop": true,
+"name": &"anim_scenarie",
+"speed": 5.0
+}]
+
+[node name="layout_fases" type="Node2D"]
+script = ExtResource("1_g1cb2")
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 180)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_lbwd1")
+animation = &"anim_scenarie"
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+modulate = Color(0.0831, 0.12, 0.066, 0.513726)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -160.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+anchors_preset = -1
+anchor_left = 0.276
+anchor_top = 0.247
+anchor_right = 0.737
+anchor_bottom = 0.247
+offset_left = -220.34
+offset_top = -68.96
+offset_right = -96.34
+offset_bottom = -13.96
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_lobisone" type="TouchScreenButton" parent="Background/HBoxContainer"]
+position = Vector2(26.02, 7.5)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("6_jboai")
+texture_pressed = ExtResource("7_0bhd3")
+
+[node name="btn_urubua" type="TouchScreenButton" parent="Background/HBoxContainer"]
+position = Vector2(112.02, 8)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("2_bdgi7")
+texture_pressed = ExtResource("3_ujkvq")
+
+[node name="btn_tautu" type="TouchScreenButton" parent="Background/HBoxContainer"]
+position = Vector2(197.84, 8)
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_0u3qm")
+texture_pressed = ExtResource("5_1o0nf")
+
+[node name="voltar" type="TouchScreenButton" parent="Background"]
+position = Vector2(-143, -78.5)
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("9_slhkt")
+texture_pressed = ExtResource("10_hlj4q")
+
+[node name="Transition" parent="." instance=ExtResource("9_leusy")]
+
+[connection signal="pressed" from="Background/voltar" to="." method="on_of"]

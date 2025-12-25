@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dixlbkg17x8rb"
+path="res://.godot/imported/Wave to earth - seasons.mp3-86a9c00c13f8100fdff3f79efa5990eb.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/songs/bg_souds/Wave to earth - seasons.mp3"
+dest_files=["res://.godot/imported/Wave to earth - seasons.mp3-86a9c00c13f8100fdff3f79efa5990eb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

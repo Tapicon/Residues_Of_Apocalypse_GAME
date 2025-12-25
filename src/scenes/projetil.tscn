@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlgrc720kq8y8"]
+
+[ext_resource type="Script" path="res://scripts/charafcter/battle/projetil.gd" id="1_xx6aq"]
+[ext_resource type="Texture2D" uid="uid://bxapv4r5l5a40" path="res://assets/sprites/gun/projectile/bala.png" id="2_5g1s6"]
+[ext_resource type="AudioStream" uid="uid://b1b1wkhnnivfg" path="res://assets/audio/sound_effects/shot/pistol-shot-233473.mp3" id="3_qdcue"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhmeq"]
+radius = 2.0
+
+[node name="PROJETIL" type="Area2D"]
+collision_layer = 16
+collision_mask = 22
+script = ExtResource("1_xx6aq")
+
+[node name="sprite_Projetil" type="Sprite2D" parent="."]
+position = Vector2(2.38419e-07, -2.38419e-07)
+scale = Vector2(1.79688, 1.79688)
+texture = ExtResource("2_5g1s6")
+
+[node name="collision_project" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qhmeq")
+
+[node name="shot_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qdcue")
+volume_db = -27.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,149 @@
+[gd_scene load_steps=24 format=3 uid="uid://bqv6mej4p7e0i"]
+
+[ext_resource type="Script" path="res://scripts/boss-wolf.gd" id="1_nnnwi"]
+[ext_resource type="Texture2D" uid="uid://woxlsd22pfo2" path="res://assets/boss/wolf/animations/attack_base/lobo ataque2.png" id="2_wecqm"]
+[ext_resource type="Texture2D" uid="uid://cj7x630rapl3" path="res://assets/boss/wolf/animations/attack_base/lobo ataque3.png" id="3_pbmvx"]
+[ext_resource type="Texture2D" uid="uid://cg3bq5pjc1ehk" path="res://assets/boss/wolf/animations/attack_base/lobo ataque4.png" id="4_pu5k3"]
+[ext_resource type="Texture2D" uid="uid://co36wkc26s6yj" path="res://assets/boss/wolf/animations/attack_base/lobo ataque5.png" id="5_6frhd"]
+[ext_resource type="Texture2D" uid="uid://pxwd8j5g5huj" path="res://assets/boss/wolf/animations/idle/lobisomi respirando1 (2).png" id="6_81uej"]
+[ext_resource type="Texture2D" uid="uid://bsf8ouh7xalqv" path="res://assets/boss/wolf/animations/bite/loboataquemordida1.png" id="6_rdt3c"]
+[ext_resource type="Texture2D" uid="uid://bx6n3emwkgeax" path="res://assets/boss/wolf/animations/idle/lobisomi respirando2 (2).png" id="7_s1tgm"]
+[ext_resource type="Texture2D" uid="uid://dxfvtve77fpo3" path="res://assets/boss/wolf/animations/bite/loboataquemordida2.png" id="7_s4s5b"]
+[ext_resource type="Texture2D" uid="uid://c7v5htd5bodx2" path="res://assets/boss/wolf/animations/idle/lobisomi respirando3 (2).png" id="8_0qr5f"]
+[ext_resource type="Texture2D" uid="uid://cyc0v216acb1h" path="res://assets/boss/wolf/animations/bite/loboataquemordida3.png" id="8_irsnu"]
+[ext_resource type="Texture2D" uid="uid://oc823sxonmwo" path="res://assets/boss/wolf/animations/bite/loboataquemordida4.png" id="9_6kdx1"]
+[ext_resource type="Texture2D" uid="uid://bv7jpflwcwcxp" path="res://assets/boss/wolf/animations/bite/loboataquemordida5.png" id="10_k34we"]
+[ext_resource type="Texture2D" uid="uid://b0unbnmbpowde" path="res://assets/boss/wolf/animations/bite/loboataquemordida6.png" id="11_aq5so"]
+[ext_resource type="Texture2D" uid="uid://f2076jlrgmc" path="res://assets/boss/wolf/animations/bite/loboataquemordida7.png" id="12_0bxla"]
+[ext_resource type="Texture2D" uid="uid://b5voykhgnhbas" path="res://assets/boss/wolf/animations/ombrada/chegandoLAataque1.png" id="13_3cuew"]
+[ext_resource type="Texture2D" uid="uid://cje6jx81p1lfx" path="res://assets/boss/wolf/animations/ombrada/chegandoLAataque3.png" id="14_6oj7o"]
+[ext_resource type="Texture2D" uid="uid://dtlfr2st3uj7l" path="res://assets/boss/wolf/animations/ombrada/BatendoOmbro.png" id="16_0ya1d"]
+[ext_resource type="Texture2D" uid="uid://ciww6itbj2bv3" path="res://assets/boss/wolf/animations/run/lobisomi ANDANDO1.png" id="16_020rw"]
+[ext_resource type="Texture2D" uid="uid://dvy8kfmgvb1k8" path="res://assets/boss/wolf/animations/run/lobisomi ANDANDO2.png" id="17_1b1w7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fbnb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wecqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbmvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pu5k3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6frhd")
+}],
+"loop": true,
+"name": &"attack_base",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_rdt3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s4s5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_irsnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6kdx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k34we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_aq5so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0bxla")
+}],
+"loop": true,
+"name": &"bite",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_3cuew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6oj7o")
+}],
+"loop": false,
+"name": &"movendo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_6oj7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0ya1d")
+}],
+"loop": true,
+"name": &"ombrada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_020rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1b1w7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_81uej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s1tgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0qr5f")
+}],
+"loop": true,
+"name": &"standed",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gs27"]
+size = Vector2(54, 153)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rlho2"]
+line_spacing = 2.0
+font_size = 12
+
+[node name="lobisomem" type="CharacterBody2D"]
+position = Vector2(340, 164)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_nnnwi")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-8, -24)
+scale = Vector2(1.75, 1.75)
+sprite_frames = SubResource("SpriteFrames_fbnb0")
+animation = &"run"
+frame_progress = 0.349955
+
+[node name="colision" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2(-3, -19)
+shape = SubResource("RectangleShape2D_3gs27")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -42.0
+offset_top = -128.0
+offset_right = 9.0
+offset_bottom = -111.0
+text = "VIDA:"
+label_settings = SubResource("LabelSettings_rlho2")

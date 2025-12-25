@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://uso2mwfh5gga"
+path="res://.godot/imported/BTS JUNGKOOK (정국) - Still With You (Instrumental) [CLEAN].mp3-bbfe9cee27ef2edd79dcc0221d559b3e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/songs/bg_souds/BTS JUNGKOOK (정국) - Still With You (Instrumental) [CLEAN].mp3"
+dest_files=["res://.godot/imported/BTS JUNGKOOK (정국) - Still With You (Instrumental) [CLEAN].mp3-bbfe9cee27ef2edd79dcc0221d559b3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

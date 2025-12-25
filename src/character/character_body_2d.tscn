@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://baafa5h6r6x8k"]
+
+[ext_resource type="Texture2D" uid="uid://c2wmjqtj3bs26" path="res://assets/sprites/character/animations/top-down/mini parado.png" id="1_iv4we"]
+[ext_resource type="Texture2D" uid="uid://c2d8qm2cos8yk" path="res://assets/sprites/character/animations/top-down/run/mini andandolado1.png" id="2_80qfp"]
+[ext_resource type="Texture2D" uid="uid://wk87rqgfd0gk" path="res://assets/sprites/character/animations/andando_mini.png" id="2_xs8wm"]
+[ext_resource type="Texture2D" uid="uid://cvf5s5lxkswqq" path="res://assets/sprites/character/animations/top-down/run/mini andandolado2.png" id="3_4bt8l"]
+[ext_resource type="Texture2D" uid="uid://8my4td74pu58" path="res://assets/sprites/character/animations/top-down/run/mini personagi andando1.png" id="4_0q6fj"]
+[ext_resource type="Texture2D" uid="uid://dyei0m2eeavac" path="res://assets/sprites/character/animations/top-down/run/mini personagi andando2.png" id="5_6qg1a"]
+[ext_resource type="Texture2D" uid="uid://du15qeuwcoex8" path="res://assets/sprites/character/animations/top-down/run/mini personagi andando3.png" id="6_nlxef"]
+[ext_resource type="Texture2D" uid="uid://b7eiquqjdjxf0" path="res://assets/sprites/character/animations/top-down/run/mini personagi andando4.png" id="7_fwrk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_426qb"]
+size = Vector2(7, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pybh"]
+atlas = ExtResource("2_xs8wm")
+region = Rect2(0, 0, 14, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6pa5"]
+atlas = ExtResource("2_xs8wm")
+region = Rect2(14, 0, 14, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr000"]
+atlas = ExtResource("2_xs8wm")
+region = Rect2(28, 0, 14, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_plfqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iv4we")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_80qfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4bt8l")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0q6fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6qg1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nlxef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fwrk5")
+}],
+"loop": true,
+"name": &"run_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pybh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6pa5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr000")
+}],
+"loop": true,
+"name": &"run_up",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iv4we")
+}],
+"loop": true,
+"name": &"standed",
+"speed": 3.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(174, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_426qb")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_plfqr")
+animation = &"run_down"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false

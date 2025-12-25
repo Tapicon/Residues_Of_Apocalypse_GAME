@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://3ig87ux30vxt"]
+
+[ext_resource type="Script" path="res://scripts/cenas/batle_2.gd" id="1_10e3b"]
+[ext_resource type="PackedScene" uid="uid://ce8napw63nojk" path="res://scenes/player/player_battle.tscn" id="2_7h1gr"]
+[ext_resource type="PackedScene" uid="uid://dlh77nvxcmg4y" path="res://scenes/enemies/urubua.tscn" id="3_3hiai"]
+[ext_resource type="Texture2D" uid="uid://cf1ab258liycj" path="res://assets/sprites/cenarios/cenario_fora_usina.png" id="4_0636c"]
+[ext_resource type="PackedScene" uid="uid://cpk5lnlvvc5re" path="res://scenes/interfaes/layer_hud.tscn" id="4_qupsb"]
+[ext_resource type="PackedScene" uid="uid://ceh0por8dc3wo" path="res://scenes/layer_PauseMenu.tscn" id="5_rbdb1"]
+[ext_resource type="PackedScene" uid="uid://b3lfylwsv7cy2" path="res://scenes/interfaes/boss_bar.tscn" id="6_xe3ti"]
+[ext_resource type="PackedScene" uid="uid://b04338bibrmnl" path="res://scenes/interfaes/alert.tscn" id="7_ysyci"]
+[ext_resource type="FontFile" uid="uid://dtvxu2t8suq47" path="res://assets/fonts/Crang.ttf" id="8_avf1n"]
+[ext_resource type="PackedScene" uid="uid://bwhgckxmv1c8p" path="res://transition_Animation.tscn" id="9_5tt2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkfxa"]
+size = Vector2(676, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y2ts8"]
+size = Vector2(12, 354)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0wsfh"]
+font = ExtResource("8_avf1n")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0rok4"]
+size = Vector2(130, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_17ox7"]
+font = ExtResource("8_avf1n")
+font_color = Color(0.82302, 0.87, 0.6351, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_donho"]
+size = Vector2(80, 20)
+
+[node name="batle2" type="Node2D"]
+script = ExtResource("1_10e3b")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(320, 180)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_0636c")
+
+[node name="Node2D" type="Node2D" parent="StaticBody2D"]
+position = Vector2(-1, -181)
+scale = Vector2(0.5, 0.5)
+
+[node name="TextureProgressBar" parent="StaticBody2D/Node2D" node_paths=PackedStringArray("boss") instance=ExtResource("6_xe3ti")]
+offset_left = 85.0
+offset_top = 46.0
+offset_right = 629.0
+offset_bottom = 66.0
+boss = NodePath("../../../urubua")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(320, 373)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(2, 10)
+shape = SubResource("RectangleShape2D_qkfxa")
+
+[node name="node_Player" parent="." instance=ExtResource("2_7h1gr")]
+
+[node name="urubua" parent="." instance=ExtResource("3_3hiai")]
+
+[node name="hall2" type="StaticBody2D" parent="."]
+position = Vector2(317, 54)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall2"]
+position = Vector2(328, 112)
+shape = SubResource("RectangleShape2D_y2ts8")
+
+[node name="hall" type="StaticBody2D" parent="."]
+position = Vector2(-14, 50)
+collision_layer = 2
+
+[node name="hall_colision" type="CollisionShape2D" parent="hall"]
+position = Vector2(14, 115)
+shape = SubResource("RectangleShape2D_y2ts8")
+
+[node name="tela_vitoria" parent="." instance=ExtResource("7_ysyci")]
+process_mode = 3
+text = "Você Venceu!!!"
+
+[node name="Sair da Beta" type="Label" parent="tela_vitoria"]
+offset_left = 261.0
+offset_top = 192.0
+offset_right = 382.0
+offset_bottom = 215.0
+text = "Sair da Beta"
+label_settings = SubResource("LabelSettings_0wsfh")
+
+[node name="sair" type="TouchScreenButton" parent="tela_vitoria/Sair da Beta"]
+position = Vector2(59, 8)
+shape = SubResource("RectangleShape2D_0rok4")
+
+[node name="tela_morte" parent="." instance=ExtResource("7_ysyci")]
+process_mode = 3
+text = "Você Morreu"
+
+[node name="restart_lbl" type="Label" parent="tela_morte"]
+offset_left = 284.0
+offset_top = 199.0
+offset_right = 372.0
+offset_bottom = 222.0
+text = "Reiniciar"
+label_settings = SubResource("LabelSettings_17ox7")
+
+[node name="restart" type="TouchScreenButton" parent="tela_morte/restart_lbl"]
+position = Vector2(43, 8)
+shape = SubResource("RectangleShape2D_donho")
+
+[node name="Transition" parent="." instance=ExtResource("9_5tt2w")]
+process_mode = 3
+visible = false
+
+[node name="bg_sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -5.0
+
+[node name="layer_HUD" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_qupsb")]
+player = NodePath("../node_Player")
+
+[node name="pause_menu" parent="." instance=ExtResource("5_rbdb1")]
+visible = false
+
+[connection signal="pressed" from="tela_vitoria/Sair da Beta/sair" to="pause_menu" method="_on_touch_screen_button_2_released"]
+[connection signal="pressed" from="tela_morte/restart_lbl/restart" to="pause_menu" method="_on_touch_screen_button_3_pressed"]
+[connection signal="finished" from="bg_sound" to="." method="_on_bg_sound_finished"]
