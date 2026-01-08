@@ -13,7 +13,7 @@
 ### Bosses
   The game features 3 bosses with a unique moveset and difficulty levels.
 
-  - The Beggar Wolf
-  - The Armaddillia
-  - The Vulturia
+  - **The Beggar Wolf**
+  - **The Armaddillia**
+  - **The Vulturia**
 
