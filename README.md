@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src=".images/gameicon.png" alt="GAME ICON" widht="300px">
+  <img src="./images/gameicon.png" alt="GAME ICON" widht="300px">
 </p>
 
 ---
